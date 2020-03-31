@@ -24,12 +24,37 @@ export default class Content {
         const params = url.parse(req.url as string, true).query;
 
         // Kezd a kódolást innen -->
+        let x = 12;
+        x = 20;
+        res.write(`Az x változó értéke: ${x}\n`);
+        res.write(x.toString() + "\n");
+        const szöveg = "alma";
+        res.write(szöveg + "\n");
+        let esik: boolean;
+        esik = true;
+        esik = false;
+        res.write(`${esik}\n`);
 
-        res.write("Hello Jedlik, hello 9.A!");
-        res.write("<h2 style='color:red;'>TipeScript</h2>");
-        res.write("próba\n");
-        res.write("alma");
+        res.write("Téglalap területe és kerülete\n");
+        res.write("a = ");
+        let oldalA: number = parseInt(params.inputa as string);
+        res.write(`<input type='number' name='inputa' value=${oldalA} style='width:5em;' onChange='this.form.submit();'>\n`);
+        if (isNaN(oldalA)) {
+            oldalA = 20;
+        }
 
+        res.write("Téglalap területe és kerülete\n");
+        res.write("b = ");
+        let oldalB: number = parseInt(params.inputb as string);
+        res.write(`<input type='number' name='inputb' value=${oldalB} style='width:5em;' onChange='this.form.submit();'>\n`);
+        if (isNaN(oldalB)) {
+            oldalB = 20;
+        }
+
+        const terület = oldalA * oldalB;
+        const kerület = 2 * (oldalA + oldalB);
+        res.write(`terület = ${terület}\n`);
+        res.write(`kerület = ${kerület}\n`);
         // <---- Fejezd be a kódolást
 
         res.write("</pre></form></body></html>");
