@@ -128,9 +128,9 @@ export default class Content {
                 res.write("2. igaz\n");
                 if (Math.pow(b, 2) > 4 * a * c) {
                     res.write("Az egyenletnek két valós gyöke van\n");
-                    const x1: number = -b + Math.sqrt(Math.pow(b, 2) - a * c) / (2 * a);
+                    const x1: number = (-b + Math.sqrt(Math.pow(b, 2) - 4 * a * c)) / (2 * a);
                     res.write(`x1 = ${x1}\n`);
-                    const x2: number = -b - Math.sqrt(Math.pow(b, 2) - a * c) / (2 * a);
+                    const x2: number = (-b - Math.sqrt(Math.pow(b, 2) - 4 * a * c)) / (2 * a);
                     res.write(`x2 = ${x2}\n`);
                 } else {
                     res.write("Az egyenletnek egy valós gyöke van\n");
