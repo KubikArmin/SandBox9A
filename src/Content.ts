@@ -111,7 +111,7 @@ export default class Content {
         res.write("b= ");
         let b: number = parseInt(params.szam2 as string);
         if (isNaN(b)) {
-            b = 1;
+            b = 2;
         }
         res.write(`<input type='number' name='szam2' value=${b} style='width:5em;' onChange='this.form.submit();'>\n`);
 
@@ -134,7 +134,7 @@ export default class Content {
                     res.write(`x2 = ${x2}\n`);
                 } else {
                     res.write("Az egyenletnek egy valós gyöke van\n");
-                    const x: number = -((2 * b) / a);
+                    const x: number = -(b / (2 * a));
                     res.write(`x = ${x}\n`);
                 }
             } else {
@@ -147,10 +147,10 @@ export default class Content {
                 res.write("I. igaz");
                 if (c != 0) {
                     res.write("II. igaz");
-                    res.write("Azonosságra jutunk, minden valós x megoldás");
+                    res.write("Ellentmondásra jutunk, minden valós x megoldás");
                 } else {
                     res.write("II. hamis");
-                    res.write("Ellentmondásra jutunk, az egyenletnek nincs megoldása");
+                    res.write("Azonosságra jutunk, az egyenletnek nincs megoldása");
                 }
             } else {
                 res.write("I. hamis");
