@@ -28,17 +28,17 @@ export default class Content {
         res.write("Legnagyobb közös osztó meghatározása kivonásos módszerrel\n");
         res.write("a = ");
         let a: number = parseInt(params.A as string);
-        res.write(`<input type='number' name='A' value=${a} style='width:5em;' onChange='this.form.submit();'>\n`);
         if (isNaN(a)) {
             a = 1;
         }
+        res.write(`<input type='number' name='A' value=${a} style='width:5em;' onChange='this.form.submit();'>\n`);
 
         res.write("b = ");
         let b: number = parseInt(params.B as string);
-        res.write(`<input type='number' name='B' value=${b} style='width:5em;' onChange='this.form.submit();'>\n`);
         if (isNaN(b)) {
             b = 1;
         }
+        res.write(`<input type='number' name='B' value=${b} style='width:5em;' onChange='this.form.submit();'>\n`);
 
         while (a != b) {
             if (a > b) {
@@ -52,10 +52,16 @@ export default class Content {
         res.write("\nLegnagyobb kösöz osztó meghatározása Euklidesz-módszerrel\n");
         res.write("x= ");
         let x: number = parseInt(params.X as string);
+        if (isNaN(x)) {
+            x = 1;
+        }
         res.write(`<input type='number' name='X' value=${x} style='width:5em;' onChange='this.form.submit();'>\n`);
 
         res.write("y= ");
         let y: number = parseInt(params.Y as string);
+        if (isNaN(y)) {
+            y = 1;
+        }
         res.write(`<input type='number' name='Y' value=${y} style='width:5em;' onChange='this.form.submit();'>\n`);
         let m: number = a % b;
         do {
@@ -64,7 +70,6 @@ export default class Content {
             y = m;
         } while (m != 0);
         res.write(`A két szám legnagyobb közös osztója: ${x}`);
-        res.write("Hello WOrld!");
         // <---- Fejezd be a kódolást
 
         res.write("</pre></form></body></html>");
