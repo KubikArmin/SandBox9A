@@ -64,6 +64,7 @@ export default class Content {
             y = m;
         } while (m != 0);
         res.write(`A két szám legnagyobb közös osztója: ${x}`);
+        res.write("Hello WOrld!");
         // <---- Fejezd be a kódolást
 
         res.write("</pre></form></body></html>");
